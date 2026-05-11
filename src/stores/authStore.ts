@@ -1,0 +1,4 @@
+import { create } from 'zustand'
+import type { User, PersonProfile, Household } from '../types'
+interface AuthState { user: User|null; personProfile: PersonProfile|null; household: Household|null; loading: boolean; setUser:(u:User|null)=>void; setPersonProfile:(p:PersonProfile|null)=>void; setHousehold:(h:Household|null)=>void; setLoading:(l:boolean)=>void; reset:()=>void }
+export const useAuthStore = create<AuthState>((set) => ({ user:null, personProfile:null, household:null, loading:true, setUser:(user)=>set({user}), setPersonProfile:(personProfile)=>set({personProfile}), setHousehold:(household)=>set({household}), setLoading:(loading)=>set({loading}), reset:()=>set({user:null,personProfile:null,household:null,loading:false}) }))
